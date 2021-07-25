@@ -9,7 +9,7 @@
  {{-- <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous"> --}}
  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css"> --}}
  {{-- <link rel="stylesheet" href="vendors/css/perfect-scrollbar.min.css"> --}}
- <link rel="stylesheet" href="vendors/css/style.css">
+ <link rel="stylesheet" href="{{ asset('vendors/css/style.css') }}">
 
  <title>{{ config('app.name', 'Laravel') }}</title>
  </head>
@@ -106,7 +106,7 @@
  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script> --}}
  {{-- <script src="https://unpkg.com/@popperjs/core@2"></script> --}}
  {{-- <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script> --}}
- <script src="vendors/js/coreui.bundle.min.js"></script>
+ <script src="{{ asset('vendors/js/coreui.bundle.min.js') }}"></script>
  </body>
 </html>
 
