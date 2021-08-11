@@ -1,0 +1,23 @@
+php artisan make:controller Admin/PageController --resource
+php artisan make:middleware IsAdmin
+
+php artisan tinker 
+User::create(['name' => 'Admin', 'email' => 'admin@admin.com', 'password' => bcrypt('passwordadmin'), 'is_admin' => 1]);
+
+php artisan make:seeder UserSeeder
+php artisan migrate --fresh --seed
+
+3
+
+php artisan make:model ChecklistGroup -m
+php artisan make:model Checklist -m
+
+php artisan make:controller Admin/ChecklistGroupController --resource
+php artisan make:controller Admin/ChecklistController --resource
+
+TAMBAH route
+
+tambah sidebar
+
+php artisan make:request StoreChecklistGroupRequest
+php artisan make:request StoreChecklistRequest
