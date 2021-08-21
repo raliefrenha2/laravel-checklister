@@ -19,7 +19,7 @@
                         @csrf
                         @method('PUT')
                         <div class="card-header">{{ __('Edit Checklist') }}</div>
-        
+
                         <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -38,7 +38,7 @@
                 <form action="{{ route('admin.checklist_groups.checklists.destroy', [$checklistGroup, $checklist]) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-sm btn-danger" type="submit" 
+                    <button class="btn btn-sm btn-danger" type="submit"
                     onclick="return confirm('{{ __('Are you sure ?') }}')"> {{ __('Delete This Checklist') }}</button>
                 </form>
 
@@ -47,24 +47,7 @@
                 <div class="card">
                     <div class="card-header"><i class="fa fa-align-justify"></i> {{ __('List of Task') }}</div>
                     <div class="card-body">
-                        <table class="table table-responsive-sm">
-                            <tbody>
-                                @foreach ($checklist->tasks as $task)
-                                    <tr>
-                                    <td>{{ $task->name }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.checklists.tasks.edit', [$checklist, $task]) }}" class="btn btn-sm btn-primary">{{ __('Edit') }}</a>
-                                        <form style="display:inline-block" action="{{ route('admin.checklists.tasks.destroy', [$checklist, $task]) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-sm btn-danger" type="submit" 
-                                            onclick="return confirm('{{ __('Are you sure ?') }}')"> {{ __('Delete') }}</button>
-                                        </form>
-                                    </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        @livewire('tasks-table', ['checklist' => $checklist])
                     </div>
                 </div>
 
@@ -81,7 +64,7 @@
                     <form action="{{ route('admin.checklists.tasks.store', [$checklist]) }}" method="POST">
                         @csrf
                         <div class="card-header">{{ __('New Task') }}</div>
-        
+
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12">
